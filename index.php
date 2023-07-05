@@ -1,21 +1,36 @@
 <?php
 
 use App\Person;
+use App\School;
+use App\Student;
 
 require_once __DIR__.'/vendor/autoload.php';
 
 
 
- $person =  new Person('Rubel Ahmed',34);
+//  $school = new School('Moulvibazar Govt high School');
+// $schoolDetail =  $school->setPrincipleName('Denesh Lal')->setSchoolAddress([
+//     'location'=>'Ali Amjad Road',
+//     'union'=>'Khasinat',
+//     'thana'=>'M Bzar Sadar'
+//  ])->detail();
 
- Person::$city = 'MoulviBazar';
-
-// echo Person::FATHER_NAME;
+$student = new Student('Moulvibazar Govt high School',43939393);
 
 
-echo json_encode(Person::personAddress());
+$detail =  $student->setPrincipleName('Denesh Lal')->setSchoolAddress([
+        'location'=>'Ali Amjad Road',
+        'union'=>'Khasinat',
+        'thana'=>'M Bzar Sadar'
+     ])->name('amjad Ali')->setClass('TEN')->section('B');
 
- echo $person->cityName();
- echo  '</br>';
-echo $person->age();
+
+     $detail->setFatherName('Maruf');
+    
+    
+  $d =    $detail->detail();
+
+echo json_encode($d);
+
+
 
